@@ -1,0 +1,7 @@
+spring:
+  jpa.hibernate.ddl-auto: none
+  datasource:
+    url: jdbc:mysql://localhost/timesheet
+    username: timesheet
+    password: timesheet
+    driver-class-name: com.mysql.jdbc.Driver
