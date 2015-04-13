@@ -10,6 +10,6 @@ class GreetingController {
 
     @RequestMapping(method = RequestMethod.GET)
     String greeting() {
-        return 'Hello Groovy'
+        'Hello Groovy'
     }
 }
