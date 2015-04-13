@@ -36,6 +36,7 @@ dependencies {
     compile("org.codehaus.groovy:groovy")
     runtime("mysql:mysql-connector-java")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.spockframework:spock-spring")
 }
 
 task wrapper(type: Wrapper) {
