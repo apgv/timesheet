@@ -1,3 +1,4 @@
+---
 spring:
   profiles: development
   jpa.hibernate.ddl-auto: none
