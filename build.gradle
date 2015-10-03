@@ -1,23 +1,11 @@
-buildscript {
-    ext {
-        springBootVersion = '1.2.5.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
-}
-
 apply plugin: 'groovy'
 apply plugin: 'idea'
-apply plugin: 'spring-boot'
 
 jar {
     baseName = 'timesheet'
     version = '0.0.1-SNAPSHOT'
 }
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -25,16 +13,13 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-security")
-    compile("org.springframework.boot:spring-boot-starter-jdbc")
-    compile("org.flywaydb:flyway-core")
-    compile("org.codehaus.groovy:groovy")
-    runtime("mysql:mysql-connector-java")
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-    testCompile("org.spockframework:spock-spring")
+    compile('com.sparkjava:spark-core:2.3')
+    compile('org.apache.shiro:shiro-core:1.2.4')
+    compile('org.apache.shiro:shiro-web:1.2.4')
+    compile('com.stormpath.shiro:stormpath-shiro-core:0.6.0')
+    runtime('com.stormpath.sdk:stormpath-sdk-httpclient:1.0.RC4.5')
+    compile('org.codehaus.groovy:groovy:2.4.5')
 }
 
 task wrapper(type: Wrapper) {
