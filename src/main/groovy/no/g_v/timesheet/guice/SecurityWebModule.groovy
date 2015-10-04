@@ -41,11 +41,11 @@ class SecurityWebModule extends ShiroWebModule {
 
     @Provides
     Client client() {
-        final properties = new Properties()
+        def properties = new Properties()
         properties.putAll(['apiKey.id'    : System.getProperty('stormpath.apiKey.id'),
                            'apiKey.secret': System.getProperty('stormpath.apiKey.secret')])
 
-        final apiKey = ApiKeys.builder()
+        def apiKey = ApiKeys.builder()
                 .setProperties(properties)
                 .build()
 
@@ -56,7 +56,7 @@ class SecurityWebModule extends ShiroWebModule {
 
     @Provides
     GroupRoleResolver groupRoleResolver() {
-        final groupRoleResolver = new DefaultGroupRoleResolver()
+        def groupRoleResolver = new DefaultGroupRoleResolver()
         groupRoleResolver.setModes([DefaultGroupRoleResolver.Mode.NAME] as Set)
         groupRoleResolver
     }
