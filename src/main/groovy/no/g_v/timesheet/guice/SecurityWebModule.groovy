@@ -31,7 +31,7 @@ class SecurityWebModule extends ShiroWebModule {
 
     @Provides
     Realm realm() {
-        def APPLICATION_ID = System.getProperty('application.id')
+        def APPLICATION_ID = System.getProperty('stormpath.application.id')
         def realm = new ApplicationRealm()
         realm.client = client()
         realm.applicationRestUrl = "https://api.stormpath.com/v1/applications/${APPLICATION_ID}"
@@ -42,8 +42,8 @@ class SecurityWebModule extends ShiroWebModule {
     @Provides
     Client client() {
         final properties = new Properties()
-        properties.putAll(['apiKey.id'    : System.getProperty('apiKey.id'),
-                           'apiKey.secret': System.getProperty('apiKey.secret')])
+        properties.putAll(['apiKey.id'    : System.getProperty('stormpath.apiKey.id'),
+                           'apiKey.secret': System.getProperty('stormpath.apiKey.secret')])
 
         final apiKey = ApiKeys.builder()
                 .setProperties(properties)
