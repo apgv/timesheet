@@ -1,6 +1,7 @@
 package no.g_v.timesheet
 
 import com.google.inject.servlet.GuiceFilter
+import no.g_v.timesheet.guice.GuiceServletConfig
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.webapp.WebAppContext
 

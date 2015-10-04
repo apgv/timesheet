@@ -1,4 +1,4 @@
-package no.g_v.timesheet
+package no.g_v.timesheet.spark
 
 import org.apache.shiro.SecurityUtils
 import org.apache.shiro.authc.UsernamePasswordToken

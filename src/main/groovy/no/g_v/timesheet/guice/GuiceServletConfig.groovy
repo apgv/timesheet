@@ -1,4 +1,4 @@
-package no.g_v.timesheet
+package no.g_v.timesheet.guice
 
 import com.google.inject.Guice
 import com.google.inject.Injector
@@ -30,7 +30,7 @@ class GuiceServletConfig extends GuiceServletContextListener {
                         filter('/*').through(GuiceShiroFilter)
 
                         bind(SparkFilter).in(Scopes.SINGLETON)
-                        filter('/*').through(SparkFilter, [applicationClass: 'no.g_v.timesheet.Application'])
+                        filter('/*').through(SparkFilter, [applicationClass: 'no.g_v.timesheet.spark.Application'])
                     }
                 },
                 new SecurityWebModule(servletContext))
