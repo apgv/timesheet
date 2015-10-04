@@ -15,8 +15,11 @@ repositories {
 
 dependencies {
     compile('com.sparkjava:spark-core:2.3')
+    compile('com.google.inject:guice:3.0')
+    compile('com.google.inject.extensions:guice-servlet:3.0')
     compile('org.apache.shiro:shiro-core:1.2.4')
     compile('org.apache.shiro:shiro-web:1.2.4')
+    compile('org.apache.shiro:shiro-guice:1.2.4')
     compile('com.stormpath.shiro:stormpath-shiro-core:0.6.0')
     runtime('com.stormpath.sdk:stormpath-sdk-httpclient:1.0.RC4.5')
     compile('org.codehaus.groovy:groovy:2.4.5')
