@@ -33,7 +33,9 @@ class GuiceServletConfig extends GuiceServletContextListener {
                         filter('/*').through(SparkFilter, [applicationClass: 'no.g_v.timesheet.spark.Application'])
                     }
                 },
-                new SecurityWebModule(servletContext))
+                new SecurityWebModule(servletContext),
+                new PropertiesModule()
+        )
     }
 
 
