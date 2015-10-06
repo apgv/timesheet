@@ -19,6 +19,7 @@ class JettyServer {
         webAppContext.addEventListener(new GuiceServletConfig())
 
         server.setHandler(webAppContext)
+        server.setStopAtShutdown(true)
 
         server.start()
         server.join()
