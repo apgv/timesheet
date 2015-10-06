@@ -2,7 +2,7 @@ package no.g_v.timesheet.guice
 
 import com.google.inject.Guice
 import com.google.inject.Injector
-import com.google.inject.Scopes
+import com.google.inject.Singleton
 import com.google.inject.servlet.GuiceServletContextListener
 import com.google.inject.servlet.ServletModule
 import org.apache.shiro.guice.web.GuiceShiroFilter
@@ -29,7 +29,7 @@ class GuiceServletConfig extends GuiceServletContextListener {
                     protected void configureServlets() {
                         filter('/*').through(GuiceShiroFilter)
 
-                        bind(SparkFilter).in(Scopes.SINGLETON)
+                        bind(SparkFilter).in(Singleton)
                         filter('/*').through(SparkFilter, [applicationClass: 'no.g_v.timesheet.spark.Application'])
                     }
                 },
