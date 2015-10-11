@@ -6,6 +6,7 @@ import com.google.inject.Singleton
 import com.google.inject.servlet.GuiceServletContextListener
 import com.google.inject.servlet.ServletModule
 import com.zaxxer.hikari.HikariDataSource
+import no.g_v.timesheet.database.migration.DatabaseMigration
 import no.g_v.timesheet.guice.module.PropertiesModule
 import no.g_v.timesheet.guice.module.SecurityWebModule
 import no.g_v.timesheet.guice.module.TimesheetModule
@@ -22,7 +23,8 @@ class GuiceServletConfig extends GuiceServletContextListener {
     @Override
     void contextInitialized(ServletContextEvent servletContextEvent) {
         this.servletContext = servletContextEvent.servletContext
-        super.contextInitialized(servletContextEvent)
+        def databaseMigration = getInjector().getInstance(DatabaseMigration)
+        databaseMigration.migrate()
     }
 
     @Override

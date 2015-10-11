@@ -8,12 +8,15 @@ import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import no.g_v.timesheet.database.config.DatabaseConfig
 import no.g_v.timesheet.database.config.MySqlConfig
+import no.g_v.timesheet.database.migration.DatabaseMigration
+import no.g_v.timesheet.database.migration.FlywayMigration
 
 class TimesheetModule extends AbstractModule {
 
     @Override
     protected void configure() {
         bind(DatabaseConfig).to(MySqlConfig)
+        bind(DatabaseMigration).to(FlywayMigration)
     }
 
     @Provides
