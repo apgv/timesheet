@@ -23,6 +23,7 @@ dependencies {
     compile('com.stormpath.shiro:stormpath-shiro-core:0.6.0')
     runtime('com.stormpath.sdk:stormpath-sdk-httpclient:1.0.RC4.5')
     compile('com.zaxxer:HikariCP:2.4.1')
+    compile('mysql:mysql-connector-java:5.1.36')
     compile('org.codehaus.groovy:groovy:2.4.5')
 }
 

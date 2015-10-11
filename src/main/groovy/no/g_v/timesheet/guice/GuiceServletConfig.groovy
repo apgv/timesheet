@@ -5,6 +5,10 @@ import com.google.inject.Injector
 import com.google.inject.Singleton
 import com.google.inject.servlet.GuiceServletContextListener
 import com.google.inject.servlet.ServletModule
+import com.zaxxer.hikari.HikariDataSource
+import no.g_v.timesheet.guice.module.PropertiesModule
+import no.g_v.timesheet.guice.module.SecurityWebModule
+import no.g_v.timesheet.guice.module.TimesheetModule
 import org.apache.shiro.guice.web.GuiceShiroFilter
 import spark.servlet.SparkFilter
 
@@ -34,9 +38,15 @@ class GuiceServletConfig extends GuiceServletContextListener {
                     }
                 },
                 new SecurityWebModule(servletContext),
-                new PropertiesModule()
+                new PropertiesModule(),
+                new TimesheetModule()
         )
     }
 
-
+    @Override
+    void contextDestroyed(ServletContextEvent servletContextEvent) {
+        def hikariDataSource = getInjector().getInstance(HikariDataSource)
+        hikariDataSource.close()
+        super.contextDestroyed(servletContextEvent)
+    }
 }

@@ -1,4 +1,4 @@
-package no.g_v.timesheet.guice
+package no.g_v.timesheet.guice.module
 
 import com.google.inject.Provides
 import com.google.inject.name.Names
