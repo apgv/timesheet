@@ -23,7 +23,8 @@ class GuiceServletConfig extends GuiceServletContextListener {
     @Override
     void contextInitialized(ServletContextEvent servletContextEvent) {
         this.servletContext = servletContextEvent.servletContext
-        def databaseMigration = getInjector().getInstance(DatabaseMigration)
+        super.contextInitialized(servletContextEvent)
+        def databaseMigration = injector().getInstance(DatabaseMigration)
         databaseMigration.migrate()
     }
 
@@ -47,8 +48,12 @@ class GuiceServletConfig extends GuiceServletContextListener {
 
     @Override
     void contextDestroyed(ServletContextEvent servletContextEvent) {
-        def hikariDataSource = getInjector().getInstance(HikariDataSource)
+        def hikariDataSource = injector().getInstance(HikariDataSource)
         hikariDataSource.close()
         super.contextDestroyed(servletContextEvent)
+    }
+
+    private Injector injector() {
+        servletContext.getAttribute(Injector.class.getName()) as Injector
     }
 }
