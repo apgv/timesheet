@@ -10,6 +10,9 @@ import no.g_v.timesheet.database.config.DatabaseConfig
 import no.g_v.timesheet.database.config.MySqlConfig
 import no.g_v.timesheet.database.migration.DatabaseMigration
 import no.g_v.timesheet.database.migration.FlywayMigration
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
+
+import javax.sql.DataSource
 
 class TimesheetModule extends AbstractModule {
 
@@ -17,6 +20,13 @@ class TimesheetModule extends AbstractModule {
     protected void configure() {
         bind(DatabaseConfig).to(MySqlConfig)
         bind(DatabaseMigration).to(FlywayMigration)
+        bind(DataSource).to(HikariDataSource)
+    }
+
+    @Provides
+    @Inject
+    NamedParameterJdbcTemplate namedParameterJdbcTemplate(DataSource dataSource) {
+        new NamedParameterJdbcTemplate(dataSource)
     }
 
     @Provides

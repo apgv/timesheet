@@ -24,6 +24,7 @@ dependencies {
     runtime('com.stormpath.sdk:stormpath-sdk-httpclient:1.0.RC4.5')
     compile('com.zaxxer:HikariCP:2.4.1')
     compile('org.flywaydb:flyway-core:3.2.1')
+    compile('org.springframework:spring-jdbc:4.2.1.RELEASE')
     compile('mysql:mysql-connector-java:5.1.36')
     compile('org.codehaus.groovy:groovy:2.4.5')
 }
