@@ -15,7 +15,7 @@ class Project {
     String name
 
     @OneToOne
-    @JoinColumn(name = 'person_id')
+    @JoinColumn(name = 'person_id', nullable = false)
     Person owner
 
     protected Project() {
