@@ -17,4 +17,7 @@ class Project {
     @OneToOne
     @JoinColumn(name = 'person_id')
     Person owner
+
+    protected Project() {
+    }
 }
