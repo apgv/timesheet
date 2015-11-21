@@ -28,6 +28,12 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('com.sparkjava:spark-core:2.3') {
+        exclude(module: 'slf4j-simple')
+        exclude(group: 'org.eclipse.jetty')
+        exclude(group: 'org.eclipse.jetty.websocket')
+    }
+    compile('org.codehaus.groovy:groovy-json')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     runtime('mysql:mysql-connector-java')
     compile('org.springframework.boot:spring-boot-starter-security')
